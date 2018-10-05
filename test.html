@@ -1,0 +1,56 @@
+<form action="/register" method="post" enctype="multipart/form-data"
+id="registrationForm">
+<div class="required">
+<label class="field" for="name">Name</label>
+<input name="name" type="text" />
+</div>
+<div class="required">
+<label class="field">Gender</label>
+<label><input type="radio" name="gender" value="male+" /> male</label>
+<label><input type="radio" name="gender" value="female" checked="checked"/> female</label>
+</div>
+<div class="required">
+<label class="field">Operating System</label>
+<select name="os">
+<option value="windows">Windows</option>
+<option value="macos">Mac OS</option>
+<option value="linux">Linux</option>
+<option value="other">Other ...</option>
+</select>
+</div>
+<div>
+<label class="field">Toys</label>
+<label><input type="checkbox" name="toy" value="digicam" /> Digital Camera
+</label>
+<label><input type="checkbox" name="toy" value="mp3" /> MP3 Player</label>
+<label><input type="checkbox" name="toy" value="wlan" /> Wireless LAN</label>
+</div>
+<div>
+<label class="field">Portrait</label>
+<input type="file" name="portrait" />
+</div>
+<div>
+<label class="field">Mini Biography</label>
+<textarea name="bio" rows="6" cols="40"></textarea>
+</div>
+<div class="submit">
+<input type="submit" value="register" />
+</div>
+</form>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+	$("#registrationForm").submit(function (event) {
+	event.preventDefault();
+	console.log($(this.name).val());
+	console.log($(this.os).val());
+	console.log($(this.gender[1]).val());
+	
+	if (!$(this).find("input[name='gender']:checked").length) {
+event.preventDefault();
+alert("You must select your gender.");
+}
+});
+
+</script>
+
+
